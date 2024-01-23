@@ -17,7 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from tierListMaker import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    # path("pokemon/", views.pokemon, name="pokemon")
+    path("", views.display_pokemon, name="display_pokemon"),
+    # path('admin/', admin.site.urls),
 ]

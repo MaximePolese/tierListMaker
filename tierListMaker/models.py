@@ -3,3 +3,6 @@ class Pokemon:
         self.name = name
         self.number = number
         self.picture = front_default
+
+    def __str__(self):
+        return self.picture
