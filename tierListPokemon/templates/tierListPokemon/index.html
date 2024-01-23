@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pokemon Tier List</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'tierListPokemon/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="label">
+
+        </div>
+        <div class="list">
+
+        </div>
+    </div>
+    <div class="pokemons">
+        {% for pokemon in pokemon_first_gen %}
+            <div id="{{ pokemon.number }}">
+                <img src="{{ pokemon.picture }}" alt="{{ pokemon.name }}"/>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>

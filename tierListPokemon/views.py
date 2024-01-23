@@ -18,4 +18,4 @@ for pokemon_number in range(1, 12):
 
 def display_pokemon(request):
     context = {"pokemon_first_gen": pokemon_first_gen}
-    return render(request, "tierListMaker/index.html", context)
+    return render(request, "tierListPokemon/index.html", context)

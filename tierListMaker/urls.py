@@ -15,11 +15,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-
-from tierListMaker import views
+from django.urls import path, include
 
 urlpatterns = [
-    path("", views.display_pokemon, name="display_pokemon"),
-    # path('admin/', admin.site.urls),
+    path("pokemon/", include("tierListPokemon.urls")),
+    path('admin/', admin.site.urls),
 ]
