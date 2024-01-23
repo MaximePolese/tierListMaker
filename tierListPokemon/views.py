@@ -6,7 +6,7 @@ from .models import Pokemon
 
 pokemon_first_gen = []
 
-for pokemon_number in range(1, 152):
+for pokemon_number in range(1, 13):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_number}"
     response = requests.get(url)
     data = response.json()
