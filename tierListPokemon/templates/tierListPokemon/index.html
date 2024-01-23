@@ -5,21 +5,28 @@
     <title>Pokemon Tier List</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'tierListPokemon/style.css' %}">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
+<h1>Pokemon Tier List</h1>
 <div class="container">
     <div class="row">
-        <div class="label">
-
+        <div class="label" style="background-color: limegreen;">
+            <p>Good</p>
         </div>
-        <div class="list">
-
+        <div class="list"></div>
+    </div>
+    <div class="row">
+        <div class="label" style="background-color: red;">
+            <p>Bad</p>
         </div>
+        <div class="list"></div>
     </div>
     <div class="pokemons">
         {% for pokemon in pokemon_first_gen %}
-            <div id="{{ pokemon.number }}">
+            <div class="pokemon" id="{{ pokemon.number }}">
                 <img src="{{ pokemon.picture }}" alt="{{ pokemon.name }}"/>
+                <h2>{{ pokemon.name }}</h2>
             </div>
         {% endfor %}
     </div>
