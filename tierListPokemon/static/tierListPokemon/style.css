@@ -10,39 +10,29 @@ html {
 .container {
     max-width: 1440px;
     margin: 0 auto;
-}
-
-.pokemons {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    position: relative;
 }
 
 h1 {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin: 0 auto;
 }
 
-h2 {
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
+.rows {
+    border-top: solid 2px #000;
+    border-left: solid 2px #000;
+    border-right: solid 2px #000;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    min-height: 96px;
+    height: 100px;
     border-bottom: solid 2px #000;
-    border-top: solid 2px #000;
 }
 
 .label {
-    width: 96px;
-    min-height: 96px;
-    border-left: solid 2px #000;
+    width: 100px;
     border-right: solid 2px #000;
     display: flex;
     align-items: center;
@@ -57,11 +47,33 @@ p {
 .list {
     flex: auto;
     background-color: gray;
-    border-right: solid 2px #000;
+}
+
+.pokemons {
+    flex: auto;
+    display: flex;
+    justify-content: center;
+    /*flex-wrap: wrap;*/
 }
 
 .pokemon {
-    cursor: grab;
+    cursor: pointer;
+    position: absolute;
+}
+
+.pokemon-container {
+    width: 96px;
+    height: 96px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+h2 {
+    font-size: 1rem;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
 }
 
 .dragging {

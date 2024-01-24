@@ -9,27 +9,32 @@
     <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
-<h1>Pokemon Tier List</h1>
 <div class="container">
-    <div class="row">
-        <div class="label" style="background-color: limegreen;">
-            <p>Good</p>
+    <h1>Pokemon Tier List</h1>
+    <div class="rows">
+        <div class="row">
+            <div class="label" style="background-color: limegreen;">
+                <p>Good</p>
+            </div>
+            <div class="list" id="container1"></div>
         </div>
-        <div class="list" id="container1"></div>
-    </div>
-    <div class="row">
-        <div class="label" style="background-color: red;">
-            <p>Bad</p>
+        <div class="row">
+            <div class="label" style="background-color: red;">
+                <p>Bad</p>
+            </div>
+            <div class="list" id="container2"></div>
         </div>
-        <div class="list" id="container2"></div>
     </div>
     <div class="pokemons">
         {% for pokemon in pokemon_first_gen %}
             <div class="pokemon" id="{{ pokemon.number }}">
-                <img src="{{ pokemon.picture }}" alt="{{ pokemon.name }}"/>
-                <h2>{{ pokemon.name }}</h2>
+                <div class="pokemon-container">
+                    <img src="{{ pokemon.picture }}" alt="{{ pokemon.name }}"/>
+                    <h2>{{ pokemon.name }}</h2>
+                </div>
             </div>
         {% endfor %}
+
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
