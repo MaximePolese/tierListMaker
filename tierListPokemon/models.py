@@ -4,5 +4,5 @@ class Pokemon:
         self.number = number
         self.picture = front_default
 
-    def __str__(self):
-        return self.picture
+    def __repr__(self):
+        return f'Pokemon(name={self.name}, number={self.number}, picture={self.picture})'

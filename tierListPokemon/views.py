@@ -5,14 +5,16 @@ from django.shortcuts import render
 from .models import Pokemon
 
 pokemon_first_gen = []
-# https://pokeapi.co/
-for pokemon_number in range(1, 12):
-    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_number}"
-    response = requests.get(url)
-    data = response.json()
-    pokemon = json.dumps(data)
-    json_pokemon = json.loads(pokemon)
-    new_pokemon = Pokemon(json_pokemon['name'], pokemon_number, json_pokemon['sprites']['front_default'])
+url = "https://beta.pokeapi.co/graphql/v1beta"
+headers = {'Content-Type': 'application/json'}
+graphql_query = "query {pokemon_v2_pokemon(limit: 151) {id name pokemon_v2_pokemonsprites {sprites}}}"
+data = json.dumps({'query': graphql_query})
+response = requests.post(url, headers=headers, data=data)
+json_data = response.json()
+pokemons_data = json_data['data']['pokemon_v2_pokemon']
+for pokemon_data in pokemons_data:
+    new_pokemon = Pokemon(pokemon_data['name'], pokemon_data['id'],
+                          pokemon_data['pokemon_v2_pokemonsprites'][0]['sprites']['front_default'])
     pokemon_first_gen.append(new_pokemon)
 
 
