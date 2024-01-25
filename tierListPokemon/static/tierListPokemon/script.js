@@ -2,6 +2,8 @@ $(document).ready(function () {
     let draggedElement = null;
     const container1 = $('#container1');
     const container2 = $('#container2');
+    let count1 = 1;
+    let count2 = 1;
 
     $('.pokemon').on('mousedown', function (e) {
         e.preventDefault();
@@ -22,11 +24,13 @@ $(document).ready(function () {
         if (isOverContainer(draggedElement, container1)) {
             console.log('Dropped in Container1');
             draggedElement.appendTo(container1);
-            draggedElement.css({left: container1.offset().left, top: container1.offset().top});
+            draggedElement.css({left: (container1.offset().left * count1), top: container1.offset().top});
+            count1 += 1;
         } else if (isOverContainer(draggedElement, container2)) {
             console.log('Dropped in Container2');
             draggedElement.appendTo(container2);
-            draggedElement.css({left: container2.offset().left, top: container2.offset().top});
+            draggedElement.css({left: (container2.offset().left * count2), top: container2.offset().top});
+            count2 += 1;
         }
         $(document).off('mousemove', onMouseMove);
         $(document).off('mouseup', onMouseUp);
@@ -40,59 +44,6 @@ $(document).ready(function () {
         const top = container.offset().top;
         const right = container.offset().left + container.width();
         const bottom = container.offset().top + container.height();
-        let inArea = centerX > left && centerX < right && centerY > top && centerY < bottom;
-        console.log(inArea);
-        return inArea;
+        return centerX > left && centerX < right && centerY > top && centerY < bottom;
     }
 });
-
-// $(document).ready(function () {
-//
-//     var currentBox = 3;
-//
-//     function magnetSnap(speed) {
-//         var snapspeed = speed;
-//         var p = $(".container div:nth-child(" + currentBox + ")");
-//         var offset = p.offset();
-//
-//         $(".dragbox").animate(
-//             {
-//                 top: offset.top,
-//                 left: offset.left
-//             },
-//             snapspeed
-//         );
-//     }
-//
-//     magnetSnap(0);
-//
-//     $(window).resize(function () {
-//         magnetSnap(0);
-//     });
-//
-//     $(".dragbox")
-//         .mousedown(function () {
-//             $(this).addClass("draggingbox");
-//         })
-//         .mouseup(function () {
-//             $(this).removeClass("draggingbox");
-//         });
-//
-//     $(".dragbox").draggable();
-//
-//     $(".dropbox").droppable({
-//         classes: {
-//             "ui-droppable-hover": "hoveringbox"
-//         },
-//
-//         over: function (event, ui) {
-//             var p = $(this);
-//             currentBox = p.index() + 1;
-//             $(".dragbox p").text(currentBox);
-//         },
-//
-//         drop: function (event, ui) {
-//             magnetSnap(40);
-//         }
-//     });
-// });

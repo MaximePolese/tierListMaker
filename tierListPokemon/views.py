@@ -5,7 +5,7 @@ from django.shortcuts import render
 from .models import Pokemon
 
 pokemon_first_gen = []
-
+# https://pokeapi.co/
 for pokemon_number in range(1, 12):
     url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_number}"
     response = requests.get(url)
