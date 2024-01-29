@@ -26,9 +26,6 @@ h1 {
 
 .row {
     display: flex;
-    flex-direction: row;
-    min-height: 102px;
-    height: auto;
     border-bottom: solid 2px #000;
     background-color: gray;
 }
@@ -47,10 +44,13 @@ p {
 }
 
 .list {
+    min-height: 100px;
     margin: 0;
     padding: 0;
     list-style-type: none;
-    flex: auto;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .pokemons {
@@ -58,20 +58,20 @@ p {
     margin: 0;
     padding: 0;
     list-style-type: none;
-    flex: auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
 .pokemon {
-    display: inline-block;
+    width: max-content;
+    height: max-content;
     cursor: pointer;
 }
 
 .pokemon-container {
-    width: 96px;
-    height: 96px;
+    width: max-content;
+    height: max-content;
     display: flex;
     justify-content: center;
     position: relative;
