@@ -25,9 +25,11 @@ $(document).ready(function () {
     function movePokemon(pokemon, sourceList, destinationList, sourceContainer, destinationContainer) {
         let pokemonId = pokemon.draggable.attr('id');
         const index = sourceList.indexOf(pokemonId);
+        // on supprime le pokemon de sa liste d'origine
         if (sourceList.includes(pokemonId)) {
             sourceList.splice(index, 1);
         }
+        // on ajoute le pokemon dans la liste de destination et on le déplace visuellement
         if (!destinationList.includes(pokemonId)) {
             destinationList.push(pokemonId);
             $('#' + pokemonId).appendTo(destinationContainer);
@@ -80,6 +82,7 @@ $(document).ready(function () {
             "ui-droppable-active": "custom-state-active"
         },
         drop: function (event, pokemon) {
+            // A améliorer peut etre avec un if else
             movePokemon(pokemon, good_pokemon, [], container1, pokedex);
             movePokemon(pokemon, bad_pokemon, [], container2, pokedex);
         }
